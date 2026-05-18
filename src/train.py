@@ -34,8 +34,7 @@ for name, model in models.items():
         model.fit(X, y)
         preds = model.predict(X)
 
-        rmse = mean_squared_error(y, preds)
-        rmse = np.sqrt(mse)
+        rmse = mean_squared_error(y, preds)**0.5
 
         mlflow.log_param("model", name)
         mlflow.log_metric("rmse", rmse)
