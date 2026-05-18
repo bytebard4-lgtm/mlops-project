@@ -23,6 +23,6 @@ df = pd.DataFrame({
     "target": y
 })
 
-df.to_csv("data/housing_v1.csv", index=False)
+df.to_csv("housing_v1.csv", index=False)
 
 print("Dataset created at data/housing_v1.csv")
