@@ -13,7 +13,7 @@ mlflow.set_experiment("MLOps_Project")
 
 client = MlflowClient()
 
-df = pd.read_csv("data/housing.csv")
+df = pd.read_csv("data/housing_v1.csv")
 
 X = df.drop("target", axis=1)
 y = df["target"]
