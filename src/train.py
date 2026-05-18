@@ -7,6 +7,7 @@ from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
 from sklearn.metrics import mean_squared_error
 
 import pandas as pd
+import numpy as np
 
 mlflow.set_tracking_uri("http://localhost:5001")
 mlflow.set_experiment("MLOps_Project")
@@ -33,7 +34,8 @@ for name, model in models.items():
         model.fit(X, y)
         preds = model.predict(X)
 
-        rmse = mean_squared_error(y, preds, squared=False)
+        rmse = mean_squared_error(y, preds)
+	rmse = np.sqrt(mse)
 
         mlflow.log_param("model", name)
         mlflow.log_metric("rmse", rmse)
